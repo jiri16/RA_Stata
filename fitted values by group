@@ -1,0 +1,19 @@
+#fitted values
+
+timer on 1
+tempfile master using
+save `master'
+qui statsby _b[_cons] _b[year] _b[year2],by(country) :regress ct year year2
+save `using', replace
+use `master'
+qui merge m:1 country using `using'
+gen chat1 =_stat_1+_stat_2*year+_stat_3*year2
+timer off 1
+
+#residuals
+
+drop _stat_1 _stat_2 _stat_3 _merge
+generate dummy = 1
+replace dummy = . if missing(yt)
+generate yhat = yhat1*dummy
+drop yhat1 dummy
