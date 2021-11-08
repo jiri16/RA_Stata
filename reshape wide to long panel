@@ -1,0 +1,3 @@
+reshape long yr, i(id varlist) j(year)
+reshape wide yr, i(id year) j(varlist) string
+rename yr* *
