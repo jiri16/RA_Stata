@@ -10,8 +10,6 @@ qui merge m:1 country using `using'
 gen yhat1 =_stat_1+_stat_2*year+_stat_3*year2
 timer off 1
 
-#residuals
-
 drop _stat_1 _stat_2 _stat_3 _merge
 generate dummy = 1
 replace dummy = . if missing(yt)
