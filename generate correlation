@@ -1,0 +1,2 @@
+ ssc install egenmore
+ egen corrxy = corr(x y) , by(country year)
