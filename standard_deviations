@@ -8,3 +8,11 @@ bysort country: egen sdm = sd(mdt)
 bysort country: egen sdx = sd(xdt)
 bysort country: egen sdtb = sd(tbdt)
 bysort country: egen sdca = sd(cadt)
+
+#additional
+
+bysort country: gen sdcy = sdc/sdy
+bysort country: gen sdgy = sdg/sdy
+bysort country: gen sdiy = sdi/sdy
+bysort country: gen sdmy = sdm/sdy
+bysort country: gen sdxy = sdx/sdy
