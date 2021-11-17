@@ -1,2 +1,15 @@
  ssc install egenmore
- egen corrxy = corr(x y) , by(country year)
+
+# general
+
+bysort country: egen corrxy = corr(x y)
+
+# for all
+
+bysort country: egen corrcy = corr(cdt ydt)
+bysort country: egen corrgy = corr(gydt ydt)
+bysort country: egen corriy = corr(idt ydt)
+bysort country: egen corrxy = corr(xdt ydt)
+bysort country: egen corrmy = corr(mdt ydt)
+bysort country: egen corrtby = corr(tbdt ydt)
+bysort country: egen corrcay = corr(cadt ydt)
