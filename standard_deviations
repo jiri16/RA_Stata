@@ -1,0 +1,10 @@
+# standard deviations
+
+bysort country: egen sdy = sd(ydt)
+bysort country: egen sdc = sd(cdt)
+bysort country: egen sdg = sd(gdt)
+bysort country: egen sdi = sd(idt)
+bysort country: egen sdm = sd(mdt)
+bysort country: egen sdx = sd(xdt)
+bysort country: egen sdtb = sd(tbdt)
+bysort country: egen sdca = sd(cadt)
