@@ -1,0 +1,19 @@
+# fitted values by group
+
+timer on 1
+tempfile master using
+save `master'
+qui statsby _b[_cons] _b[year],by(country) :regress yt year
+save `using', replace
+use `master'
+qui merge m:1 country using `using'
+gen yhat1 =_stat_1+_stat_2*year
+timer off 1
+
+# clean
+
+drop _stat_1 _stat_2 _merge
+generate dummy = 1
+replace dummy = . if missing(yt)
+generate yhat = yhat1*dummy
+drop yhat1 dummy
