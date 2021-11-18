@@ -17,3 +17,14 @@ generate dummy = 1
 replace dummy = . if missing(yt)
 generate yhat = yhat1*dummy
 drop yhat1 dummy
+
+# subtract
+
+bysort country: gen ydt = yt-yhat
+bysort country: gen cdt = ct-chat
+bysort country: gen gdt = gt-ghat
+bysort country: gen idt = it-ihat
+bysort country: gen mdt = mt-yhat
+bysort country: gen xdt = xt-yhat
+bysort country: gen tbdt = tby-tbhat
+bysort country: gen cadt = cay-cahat
