@@ -1,0 +1,4 @@
+generate date = tq(1990q1) + _n-1
+list date in 1
+format %tq date
+list date in 1
