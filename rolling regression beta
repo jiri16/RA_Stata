@@ -1,0 +1,5 @@
+rolling _b _se, window(30) clear: reg er_en_d ds_d_d if country1==1 & inrange(quarter,160,238)
+gen ub = _b_ds_d_d + 1.96*_se_ds_d_d
+gen lb = _b_ds_d_d - 1.96* _se_ds_d_d
+label variable _b_ds_d_d "foreign (BIS)"
+line _b_ds_d_d ub lb end, yline(0) lp(solid dash dash) lcolor(red red red)
