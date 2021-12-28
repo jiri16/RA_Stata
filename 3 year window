@@ -1,0 +1,1 @@
+gen test = (log(x[_n+3])+log(x[_n+2])+log(x[_n+1]))/3-(log(x[_n-3])+log(x[_n-2])+log(x[_n-1]))/3
