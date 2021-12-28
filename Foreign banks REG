@@ -1,1 +1,1 @@
-xtreg bank_inflows entriesdummy oecd_m3 oecd_gdp vix sov_rating ex_rate bank_credit gdp stock_index if emerging==1, fe
+xtreg bank_inflows entriesdummy oecd_m3 oecd_gdp vix sov_rating ex_rate bank_credit gdp stock_index if emerging==1 & country1!=14, fe
