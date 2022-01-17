@@ -1,1 +1,3 @@
 rolling r2=e(r2), window(60) keep(month) clear: regress er_end flow_debt if country1==1
+
+line r2 date
