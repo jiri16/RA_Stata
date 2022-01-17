@@ -3,3 +3,6 @@ rolling r2=e(r2), window(60) keep(month) clear: regress er_end flow_debt if coun
 line r2 date
 
 rolling r2=e(r2), window(60) keep(month) clear: regress er_end flow_debt if country1==1 & inrange(month, ym(1995,1), ym(2021,7))
+
+rolling r2=e(r2), window(20) keep(quarter) clear: regress log_er_en debt if country1==1 & inrange(quarter, yq(2000,1), yq(2020,4))
+
