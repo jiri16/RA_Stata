@@ -1,3 +1,5 @@
 rolling r2=e(r2), window(60) keep(month) clear: regress er_end flow_debt if country1==1 & inrange(month, 1995m4, 2021m6)
 
 line r2 date
+
+rolling r2=e(r2), window(60) keep(month) clear: regress er_end flow_debt if country1==1 & inrange(month, ym(1995,1), ym(2021,7))
