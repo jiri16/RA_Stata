@@ -1,0 +1,1 @@
+graph bar column column2, over(time) stack
