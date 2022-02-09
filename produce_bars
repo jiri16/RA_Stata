@@ -1,5 +1,5 @@
-graph bar direct_net_gdp portfolio_net_gdp other_net_gdp if country==6, over(time) stack
+graph bar portfolio_net_gdp other_net_gdp direct_net_gdp if country==6, over(time) stack
 
 
 labels
-twoway bar direct_net_gdp portfolio_net_gdp other_net_gdp time if country==6
+twoway bar portfolio_net_gdp other_net_gdp direct_net_gdp time if country==6
