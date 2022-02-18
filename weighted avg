@@ -1,0 +1,1 @@
+by year eme: egen mpk_eme_w = wtmean(mpk), weight(rgdpna)
