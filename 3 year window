@@ -1,1 +1,1 @@
-gen test = (log(x[_n+3])+log(x[_n+2])+log(x[_n+1]))/3-(log(x[_n-3])+log(x[_n-2])+log(x[_n-1]))/3
+by country1: gen oecd_m3 = log((oecdm3[_n+1]+oecdm3[_n+2]+oecdm3[_n+3])/3)- log((oecdm3[_n-1]+oecdm3[_n-2]+oecdm3[_n-3])/3)
