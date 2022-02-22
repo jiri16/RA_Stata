@@ -10,9 +10,9 @@ graph twoway (scatter mpk_3 net_flow_3 if region==1, mlabel(countrycode)) (scatt
 
 graph twoway (scatter mpk_1 net_direct_1 if region==1, mlabel(countrycode)) (scatter mpk_1 net_direct_1 if region==2, mlabel(countrycode)) (scatter mpk_1 net_direct_1 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("MPK vs Total Net Direct Flows (1980-2000)")
 
-graph twoway (scatter mpk_2 net_direct_2 if region==1, mlabel(countrycode)) (scatter mpk_2 net_direct_2 if region==2, mlabel(countrycode)) (scatter mpk_2 net_direct_2 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("MPK vs Total Net Flows (2000-2010)")
+graph twoway (scatter mpk_2 net_direct_2 if region==1, mlabel(countrycode)) (scatter mpk_2 net_direct_2 if region==2, mlabel(countrycode)) (scatter mpk_2 net_direct_2 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("MPK vs Total Net Direct Flows (2000-2010)")
 
-graph twoway (scatter mpk_3 net_direct_3 if region==1, mlabel(countrycode)) (scatter mpk_3 net_direct_3 if region==2, mlabel(countrycode)) (scatter mpk_3 net_direct_3 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("MPK vs Total Net Flows (2010-2020)")
+graph twoway (scatter mpk_3 net_direct_3 if region==1, mlabel(countrycode)) (scatter mpk_3 net_direct_3 if region==2, mlabel(countrycode)) (scatter mpk_3 net_direct_3 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("MPK vs Total Net Direct Flows (2010-2020)")
 
 #portfolio
 
