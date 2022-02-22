@@ -1,0 +1,63 @@
+#net
+
+graph twoway (scatter i_y_1 net_flow_1 if region==1, mlabel(countrycode)) (scatter i_y_1 net_flow_1 if region==2, mlabel(countrycode)) (scatter i_y_1 net_flow_1 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("I/Y vs Total Net Flows (1980-2000)")
+
+graph twoway (scatter i_y_2 net_flow_2 if region==1, mlabel(countrycode)) (scatter i_y_2 net_flow_2 if region==2, mlabel(countrycode)) (scatter i_y_2 net_flow_2 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("I/Y vs Total Net Flows (2000-2010)")
+
+graph twoway (scatter i_y_3 net_flow_3 if region==1, mlabel(countrycode)) (scatter i_y_3 net_flow_3 if region==2, mlabel(countrycode)) (scatter i_y_3 net_flow_3 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("I/Y vs Total Net Flows (2010-2020)")
+
+#direct
+
+graph twoway (scatter i_y_1 net_direct_1 if region==1, mlabel(countrycode)) (scatter i_y_1 net_direct_1 if region==2, mlabel(countrycode)) (scatter i_y_1 net_direct_1 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("I/Y vs Total Net Direct Flows (1980-2000)")
+
+graph twoway (scatter i_y_2 net_direct_2 if region==1, mlabel(countrycode)) (scatter i_y_2 net_direct_2 if region==2, mlabel(countrycode)) (scatter i_y_2 net_direct_2 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("I/Y vs Total Net Flows (2000-2010)")
+
+graph twoway (scatter i_y_3 net_direct_3 if region==1, mlabel(countrycode)) (scatter i_y_3 net_direct_3 if region==2, mlabel(countrycode)) (scatter i_y_3 net_direct_3 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("I/Y vs Total Net Flows (2010-2020)")
+
+#portfolio
+
+graph twoway (scatter i_y_1 net_portfolio_1 if region==1, mlabel(countrycode)) (scatter i_y_1 net_portfolio_1 if region==2, mlabel(countrycode)) (scatter i_y_1 net_portfolio_1 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("I/Y vs Total Net Portfolio Flows (1980-2000)")
+
+graph twoway (scatter i_y_2 net_portfolio_2 if region==1, mlabel(countrycode)) (scatter i_y_2 net_portfolio_2 if region==2, mlabel(countrycode)) (scatter i_y_2 net_portfolio_2 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("I/Y vs Total Net Portfolio Flows (2000-2010)")
+
+graph twoway (scatter i_y_3 net_portfolio_3 if region==1, mlabel(countrycode)) (scatter i_y_3 net_portfolio_3 if region==2, mlabel(countrycode)) (scatter i_y_3 net_portfolio_3 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("I/Y vs Total Net Portfolio Flows (2010-2020)")
+
+#other
+
+graph twoway (scatter i_y_1 net_other_1 if region==1, mlabel(countrycode)) (scatter i_y_1 net_other_1 if region==2, mlabel(countrycode)) (scatter i_y_1 net_other_1 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("I/Y vs Total Net Other Flows (1980-2000)")
+
+graph twoway (scatter i_y_2 net_other_2 if region==1, mlabel(countrycode)) (scatter i_y_2 net_other_2 if region==2, mlabel(countrycode)) (scatter i_y_2 net_other_2 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("I/Y vs Total Net Other Flows (2000-2010)")
+
+graph twoway (scatter i_y_3 net_other_3 if region==1, mlabel(countrycode)) (scatter i_y_3 net_other_3 if region==2, mlabel(countrycode)) (scatter i_y_3 net_other_3 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("I/Y vs Total Net Other Flows (2010-2020)")
+
+#private
+
+graph twoway (scatter i_y_1 net_private_1 if region==1, mlabel(countrycode)) (scatter i_y_1 net_private_1 if region==2, mlabel(countrycode)) (scatter i_y_1 net_private_1 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("I/Y vs Total Net Private Flows (1980-2000)")
+
+graph twoway (scatter i_y_2 net_private_2 if region==1, mlabel(countrycode)) (scatter i_y_2 net_private_2 if region==2, mlabel(countrycode)) (scatter i_y_2 net_private_2 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("I/Y vs Total Net Private Flows (2000-2010)")
+
+graph twoway (scatter i_y_3 net_private_3 if region==1, mlabel(countrycode)) (scatter i_y_3 net_private_3 if region==2, mlabel(countrycode)) (scatter i_y_3 net_private_3 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("I/Y vs Total Net Private Flows (2010-2020)")
+
+#public
+
+graph twoway (scatter i_y_1 net_public_1 if region==1, mlabel(countrycode)) (scatter i_y_1 net_public_1 if region==2, mlabel(countrycode)) (scatter i_y_1 net_public_1 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("I/Y vs Total Net Public Flows (1980-2000)")
+
+graph twoway (scatter i_y_2 net_public_2 if region==1, mlabel(countrycode)) (scatter i_y_2 net_public_2 if region==2, mlabel(countrycode)) (scatter i_y_2 net_public_2 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("I/Y vs Total Net Public Flows (2000-2010)")
+
+graph twoway (scatter i_y_3 net_public_3 if region==1, mlabel(countrycode)) (scatter i_y_3 net_public_3 if region==2, mlabel(countrycode)) (scatter i_y_3 net_public_3 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("I/Y vs Total Net Public Flows (2010-2020)")
+
+#inflow
+
+graph twoway (scatter i_y_1 gross_inflow_1 if region==1, mlabel(countrycode)) (scatter i_y_1 gross_inflow_1 if region==2, mlabel(countrycode)) (scatter i_y_1 gross_inflow_1 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("I/Y vs Total Gross Inflows (1980-2000)")
+
+graph twoway (scatter i_y_2 gross_inflow_2 if region==1, mlabel(countrycode)) (scatter i_y_2 gross_inflow_2 if region==2, mlabel(countrycode)) (scatter i_y_2 gross_inflow_2 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("I/Y vs Total Gross Inflows (2000-2010)")
+
+graph twoway (scatter i_y_3 gross_inflow_3 if region==1, mlabel(countrycode)) (scatter i_y_3 gross_inflow_3 if region==2, mlabel(countrycode)) (scatter i_y_3 gross_inflow_3 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("I/Y vs Total Gross Inflows (2010-2020)")
+
+#outflow
+
+graph twoway (scatter i_y_1 gross_outflow_1 if region==1, mlabel(countrycode)) (scatter i_y_1 gross_outflow_1 if region==2, mlabel(countrycode)) (scatter i_y_1 gross_outflow_1 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("I/Y vs Total Gross Outflows (1980-2000)")
+
+graph twoway (scatter i_y_2 gross_outflow_2 if region==1, mlabel(countrycode)) (scatter i_y_2 gross_outflow_2 if region==2, mlabel(countrycode)) (scatter i_y_2 gross_outflow_2 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("I/Y vs Total Gross Outflows (2000-2010)")
+
+graph twoway (scatter i_y_3 gross_outflow_3 if region==1, mlabel(countrycode)) (scatter i_y_3 gross_outflow_3 if region==2, mlabel(countrycode)) (scatter i_y_3 gross_outflow_3 if region==3, mlabel(countrycode)), legend(label(1 Europe) label(2 Asia) label(3 Latin America)) title("I/Y vs Total Gross Outflows (2010-2020)")
