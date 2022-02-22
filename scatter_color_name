@@ -1,0 +1,1 @@
+graph twoway (scatter mpk_3 net_flow_3 if region==1, mlabel(country)) (scatter mpk_3 net_flow_3 if region==2, mlabel(country)) (scatter mpk_3 net_flow_3 if region==3, mlabel(country))
