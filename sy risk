@@ -3,11 +3,11 @@ foreach x in l_pi_ds {
 reghdfe `x' l1savgnatshock l1savgpolshock l1savgrevshock l1savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 
 est store baseline1
-reghdfe `x' l1savgnatshock l1savgpolshock l1savgrevshock l1savgtershock usgdp_gr usffr usdollar comm VIX l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
+reghdfe `x' l1savgnatshock l1savgpolshock l1savgrevshock l1savgtershock usgdp_gr usffr usdollar comm vix l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
 est store baseline2 
-reghdfe `x' l1savgnatshock l1savgpolshock l1savgrevshock l1savgtershock usgdp_gr usffr usdollar comm VIX GDP_gr CPI CB_rate stock_gr biFX_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+reghdfe `x' l1savgnatshock l1savgpolshock l1savgrevshock l1savgtershock usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline3
-reghdfe `x' l1savgnatshock l1savgpolshock l1savgrevshock l1savgtershock usgdp_gr usffr usdollar comm VIX GDP_gr CPI CB_rate stock_gr biFX_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
+reghdfe `x' l1savgnatshock l1savgpolshock l1savgrevshock l1savgtershock usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
 est store baseline4
 
 }
