@@ -1,0 +1,32 @@
+#NET
+by ifs: gen net_total = (l_di + l_pi_ds + l_pi_eq + l_oi) - (a_di + a_pi_ds + a_pi_eq + a_oi)
+by ifs: gen net_direct = (l_di) - (a_di)
+by ifs: gen net_equity = (l_pi_eq-l_pi_eq_pub) - (a_pi_eq-a_pi_eq_pub)
+by ifs: gen net_bonds_pr = (l_pi_ds-l_pi_ds_pub) - (a_pi_ds-a_pi_ds_pub)
+by ifs: gen net_bonds_sov = (l_pi_ds_pub) - (a_pi_ds_pub)
+by ifs: gen net_other_pr = (l_oi-l_oi_pub) - (a_oi-a_oi_pub)
+by ifs: gen net_other_sov = (l_oi) - (a_oi)
+by ifs: gen net_pr = (l_pi_ds-l_pi_ds_pub + l_pi_eq-l_pi_eq_pub + l_oi-l_oi_pub) - (a_pi_ds-a_pi_ds_pub + a_pi_eq-a_pi_eq_pub + a_oi-a_oi_pub)
+by ifs: gen net_sov = (l_pi_ds_pub + l_pi_eq_pub + l_oi_pub) - (a_pi_ds_pub + a_pi_eq_pub + a_oi_pub)
+
+#GROSS INFLOW
+by ifs: gen gi_total = (l_di + l_pi_ds + l_pi_eq + l_oi)
+by ifs: gen gi_direct = (l_di)
+by ifs: gen gi_equity = (l_pi_eq-l_pi_eq_pub)
+by ifs: gen gi_bonds_pr = (l_pi_ds-l_pi_ds_pub)
+by ifs: gen gi_bonds_sov = (l_pi_ds_pub)
+by ifs: gen gi_other_pr = (l_oi-l_oi_pub)
+by ifs: gen gi_other_sov = (l_oi)
+by ifs: gen gi_pr = (l_pi_ds-l_pi_ds_pub + l_pi_eq-l_pi_eq_pub + l_oi-l_oi_pub)
+by ifs: gen gi_sov = (l_pi_ds_pub + l_pi_eq_pub + l_oi_pub)
+
+#GROSS OUTFLOW
+by ifs: gen go_total = (a_di + a_pi_ds + a_pi_eq + a_oi)
+by ifs: gen go_direct = (a_di)
+by ifs: gen go_equity = (a_pi_eq-a_pi_eq_pub)
+by ifs: gen go_bonds_pr = (a_pi_ds-a_pi_ds_pub)
+by ifs: gen go_bonds_sov = (a_pi_ds_pub)
+by ifs: gen go_other_pr = (a_oi-a_oi_pub)
+by ifs: gen go_other_sov = (a_oi)
+by ifs: gen go_pr = (a_pi_ds-a_pi_ds_pub + a_pi_eq-a_pi_eq_pub + a_oi-a_oi_pub)
+by ifs: gen go_sov = (a_pi_ds_pub + a_pi_eq_pub + a_oi_pub)
