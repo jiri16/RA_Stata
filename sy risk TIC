@@ -1,0 +1,17 @@
+foreach x in tic_for_sto {
+
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+est store baseline1
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
+est store baseline2
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+est store baseline3
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
+est store baseline4 
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+est store baseline5
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+esttab baseline* using "tic_for_sto.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
