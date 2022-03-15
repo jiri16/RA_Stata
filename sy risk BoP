@@ -1,4 +1,4 @@
-foreach x in net_total {
+foreach x in net_total_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -16,7 +16,7 @@ est store baseline5
 esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 esttab baseline* using "net_total.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
-foreach x in net_direct {
+foreach x in net_direct_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -34,7 +34,7 @@ est store baseline5
 esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 esttab baseline* using "net_direct.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
-foreach x in net_equity {
+foreach x in net_equity_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -52,7 +52,7 @@ est store baseline5
 esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 esttab baseline* using "net_equity.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
-foreach x in net_bonds_pr {
+foreach x in net_bonds_pr_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -71,7 +71,7 @@ esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o 
 esttab baseline* using "net_bonds_pr.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
 
-foreach x in net_bonds_sov {
+foreach x in net_bonds_sov_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -90,7 +90,7 @@ esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o 
 esttab baseline* using "net_bonds_sov.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
 
-foreach x in net_other_pr {
+foreach x in net_other_pr_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -109,7 +109,7 @@ esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o 
 esttab baseline* using "net_other_pr.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
 
-foreach x in net_other_sov {
+foreach x in net_other_sov_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -128,7 +128,7 @@ esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o 
 esttab baseline* using "net_other_sov.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
 
-foreach x in net_pr {
+foreach x in net_pr_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -147,7 +147,7 @@ esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o 
 esttab baseline* using "net_pr.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
 
-foreach x in net_sov {
+foreach x in net_sov_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -165,7 +165,7 @@ est store baseline5
 esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 esttab baseline* using "net_sov.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
-foreach x in gi_total {
+foreach x in gi_total_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -183,7 +183,7 @@ est store baseline5
 esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 esttab baseline* using "gi_total.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
-foreach x in gi_direct {
+foreach x in gi_direct_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -201,7 +201,7 @@ est store baseline5
 esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 esttab baseline* using "gi_direct.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
-foreach x in gi_equity {
+foreach x in gi_equity_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -219,7 +219,7 @@ est store baseline5
 esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 esttab baseline* using "gi_equity.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
-foreach x in gi_bonds_pr {
+foreach x in gi_bonds_pr_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -238,7 +238,7 @@ esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o 
 esttab baseline* using "gi_bonds_pr.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
 
-foreach x in gi_bonds_sov {
+foreach x in gi_bonds_sov_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -257,7 +257,7 @@ esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o 
 esttab baseline* using "gi_bonds_sov.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
 
-foreach x in gi_other_pr {
+foreach x in gi_other_pr_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -276,7 +276,7 @@ esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o 
 esttab baseline* using "gi_other_pr.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
 
-foreach x in gi_other_sov {
+foreach x in gi_other_sov_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -295,7 +295,7 @@ esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o 
 esttab baseline* using "gi_other_sov.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
 
-foreach x in gi_pr {
+foreach x in gi_pr_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -314,7 +314,7 @@ esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o 
 esttab baseline* using "gi_pr.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
 
-foreach x in gi_sov {
+foreach x in gi_sov_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -332,7 +332,7 @@ est store baseline5
 esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 esttab baseline* using "gi_sov.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
-foreach x in go_total {
+foreach x in go_total_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -350,7 +350,7 @@ est store baseline5
 esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 esttab baseline* using "go_total.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
-foreach x in go_direct {
+foreach x in go_direct_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -368,7 +368,7 @@ est store baseline5
 esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 esttab baseline* using "go_direct.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
-foreach x in go_equity {
+foreach x in go_equity_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -386,7 +386,7 @@ est store baseline5
 esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 esttab baseline* using "go_equity.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
-foreach x in go_bonds_pr {
+foreach x in go_bonds_pr_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -405,7 +405,7 @@ esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o 
 esttab baseline* using "go_bonds_pr.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
 
-foreach x in go_bonds_sov {
+foreach x in go_bonds_sov_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -424,7 +424,7 @@ esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o 
 esttab baseline* using "go_bonds_sov.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
 
-foreach x in go_other_pr {
+foreach x in go_other_pr_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -443,7 +443,7 @@ esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o 
 esttab baseline* using "go_other_pr.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
 
-foreach x in go_other_sov {
+foreach x in go_other_sov_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -462,7 +462,7 @@ esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o 
 esttab baseline* using "go_other_sov.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
 
-foreach x in go_pr {
+foreach x in go_pr_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
@@ -481,7 +481,7 @@ esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o 
 esttab baseline* using "go_pr.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
 
-foreach x in go_sov {
+foreach x in go_sov_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
