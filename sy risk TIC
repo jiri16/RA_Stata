@@ -17,7 +17,7 @@ esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o 
 esttab baseline* using "tic_us.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
 
 
-foreach x in tic_us_tre_lt_w {
+foreach x in tic_us_tre_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
