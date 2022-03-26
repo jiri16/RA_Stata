@@ -1,305 +1,170 @@
-foreach x in net_total_w {
+foreach x in total_w {
 
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.net_`x' l2.net_`x' l3.net_`x' l4.net_`x' , absorb(ifs yq)
 est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.net_`x' l2.net_`x' l3.net_`x' l4.net_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
 est store iv2
+ivreghdfe gi_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gi_`x' l2.gi_`x' l3.gi_`x' l4.gi_`x' , absorb(ifs yq)
+est store iv3
+ivreghdfe gi_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gi_`x' l2.gi_`x' l3.gi_`x' l4.gi_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+est store iv4
+ivreghdfe go_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.go_`x' l2.go_`x' l3.go_`x' l4.go_`x' , absorb(ifs yq)
+est store iv5
+ivreghdfe go_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.go_`x' l2.go_`x' l3.go_`x' l4.go_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+est store iv6
 
 }
 esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "net_total.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
+esttab iv* using "total.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
 
-foreach x in net_direct_w {
+foreach x in direct_w {
 
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.net_`x' l2.net_`x' l3.net_`x' l4.net_`x' , absorb(ifs yq)
 est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.net_`x' l2.net_`x' l3.net_`x' l4.net_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
 est store iv2
-
+ivreghdfe gi_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gi_`x' l2.gi_`x' l3.gi_`x' l4.gi_`x' , absorb(ifs yq)
+est store iv3
+ivreghdfe gi_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gi_`x' l2.gi_`x' l3.gi_`x' l4.gi_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+est store iv4
+ivreghdfe go_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.go_`x' l2.go_`x' l3.go_`x' l4.go_`x' , absorb(ifs yq)
+est store iv5
+ivreghdfe go_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.go_`x' l2.go_`x' l3.go_`x' l4.go_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+est store iv6
 
 }
 esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "net_direct.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
+esttab iv* using "direct.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
 
-foreach x in net_equity_w {
+foreach x in equity_w {
 
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.net_`x' l2.net_`x' l3.net_`x' l4.net_`x' , absorb(ifs yq)
 est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.net_`x' l2.net_`x' l3.net_`x' l4.net_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
 est store iv2
-
+ivreghdfe gi_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gi_`x' l2.gi_`x' l3.gi_`x' l4.gi_`x' , absorb(ifs yq)
+est store iv3
+ivreghdfe gi_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gi_`x' l2.gi_`x' l3.gi_`x' l4.gi_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+est store iv4
+ivreghdfe go_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.go_`x' l2.go_`x' l3.go_`x' l4.go_`x' , absorb(ifs yq)
+est store iv5
+ivreghdfe go_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.go_`x' l2.go_`x' l3.go_`x' l4.go_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+est store iv6
 
 }
 esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "net_equity.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
+esttab iv* using "equity.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
 
-foreach x in net_bonds_pr_w {
+foreach x in bonds_pr_w {
 
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.net_`x' l2.net_`x' l3.net_`x' l4.net_`x' , absorb(ifs yq)
 est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.net_`x' l2.net_`x' l3.net_`x' l4.net_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
 est store iv2
-
+ivreghdfe gi_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gi_`x' l2.gi_`x' l3.gi_`x' l4.gi_`x' , absorb(ifs yq)
+est store iv3
+ivreghdfe gi_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gi_`x' l2.gi_`x' l3.gi_`x' l4.gi_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+est store iv4
+ivreghdfe go_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.go_`x' l2.go_`x' l3.go_`x' l4.go_`x' , absorb(ifs yq)
+est store iv5
+ivreghdfe go_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.go_`x' l2.go_`x' l3.go_`x' l4.go_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+est store iv6
 
 }
 esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "net_bonds_pr.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
+esttab iv* using "bonds_pr.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
 
-foreach x in net_bonds_sov_w {
+foreach x in bonds_sov_w {
 
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.net_`x' l2.net_`x' l3.net_`x' l4.net_`x' , absorb(ifs yq)
 est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.net_`x' l2.net_`x' l3.net_`x' l4.net_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
 est store iv2
-
+ivreghdfe gi_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gi_`x' l2.gi_`x' l3.gi_`x' l4.gi_`x' , absorb(ifs yq)
+est store iv3
+ivreghdfe gi_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gi_`x' l2.gi_`x' l3.gi_`x' l4.gi_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+est store iv4
+ivreghdfe go_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.go_`x' l2.go_`x' l3.go_`x' l4.go_`x' , absorb(ifs yq)
+est store iv5
+ivreghdfe go_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.go_`x' l2.go_`x' l3.go_`x' l4.go_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+est store iv6
 
 }
 esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "net_bonds_sov.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
+esttab iv* using "bonds_sov.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
 
-foreach x in net_other_pr_w {
+foreach x in other_pr_w {
 
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.net_`x' l2.net_`x' l3.net_`x' l4.net_`x' , absorb(ifs yq)
 est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.net_`x' l2.net_`x' l3.net_`x' l4.net_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
 est store iv2
-
+ivreghdfe gi_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gi_`x' l2.gi_`x' l3.gi_`x' l4.gi_`x' , absorb(ifs yq)
+est store iv3
+ivreghdfe gi_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gi_`x' l2.gi_`x' l3.gi_`x' l4.gi_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+est store iv4
+ivreghdfe go_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.go_`x' l2.go_`x' l3.go_`x' l4.go_`x' , absorb(ifs yq)
+est store iv5
+ivreghdfe go_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.go_`x' l2.go_`x' l3.go_`x' l4.go_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+est store iv6
 
 }
 esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "net_other_pr.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
+esttab iv* using "other_pr.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
 
-foreach x in net_other_sov_w {
+foreach x in other_sov_w {
 
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.net_`x' l2.net_`x' l3.net_`x' l4.net_`x' , absorb(ifs yq)
 est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.net_`x' l2.net_`x' l3.net_`x' l4.net_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
 est store iv2
-
+ivreghdfe gi_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gi_`x' l2.gi_`x' l3.gi_`x' l4.gi_`x' , absorb(ifs yq)
+est store iv3
+ivreghdfe gi_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gi_`x' l2.gi_`x' l3.gi_`x' l4.gi_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+est store iv4
+ivreghdfe go_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.go_`x' l2.go_`x' l3.go_`x' l4.go_`x' , absorb(ifs yq)
+est store iv5
+ivreghdfe go_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.go_`x' l2.go_`x' l3.go_`x' l4.go_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+est store iv6
 
 }
 esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "net_other_sov.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
+esttab iv* using "other_sov.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
 
-foreach x in net_pr_w {
+foreach x in pr_w {
 
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.net_`x' l2.net_`x' l3.net_`x' l4.net_`x' , absorb(ifs yq)
 est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.net_`x' l2.net_`x' l3.net_`x' l4.net_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
 est store iv2
-
+ivreghdfe gi_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gi_`x' l2.gi_`x' l3.gi_`x' l4.gi_`x' , absorb(ifs yq)
+est store iv3
+ivreghdfe gi_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gi_`x' l2.gi_`x' l3.gi_`x' l4.gi_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+est store iv4
+ivreghdfe go_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.go_`x' l2.go_`x' l3.go_`x' l4.go_`x' , absorb(ifs yq)
+est store iv5
+ivreghdfe go_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.go_`x' l2.go_`x' l3.go_`x' l4.go_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+est store iv6
 
 }
 esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "net_pr.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
+esttab iv* using "private.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
 
-foreach x in net_sov_w {
+foreach x in sov_w {
 
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.net_`x' l2.net_`x' l3.net_`x' l4.net_`x' , absorb(ifs yq)
 est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr, absorb(ifs yq)
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.net_`x' l2.net_`x' l3.net_`x' l4.net_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
 est store iv2
+ivreghdfe gi_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gi_`x' l2.gi_`x' l3.gi_`x' l4.gi_`x' , absorb(ifs yq)
+est store iv3
+ivreghdfe gi_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gi_`x' l2.gi_`x' l3.gi_`x' l4.gi_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+est store iv4
+ivreghdfe go_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.go_`x' l2.go_`x' l3.go_`x' l4.go_`x' , absorb(ifs yq)
+est store iv5
+ivreghdfe go_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.go_`x' l2.go_`x' l3.go_`x' l4.go_`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
+est store iv6
 
 }
 esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "net_sov.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-
-
-foreach x in gi_total_w {
-
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
-est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
-est store iv2
-
-}
-esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "gi_total.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-
-foreach x in gi_direct_w {
-
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
-est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
-est store iv2
-
-}
-esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "gi_direct.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-
-foreach x in gi_equity_w {
-
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
-est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr, absorb(ifs yq)
-est store iv2
-
-}
-esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "gi_equity.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-
-foreach x in gi_bonds_pr_w {
-
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
-est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
-est store iv2
-
-}
-esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "gi_bonds_pr.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-
-foreach x in gi_bonds_sov_w {
-
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
-est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr, absorb(ifs yq)
-est store iv2
-
-}
-esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "gi_bonds_sov.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-
-foreach x in gi_other_pr_w {
-
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
-est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr, absorb(ifs yq)
-est store iv2
-
-}
-esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "gi_other_pr.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-
-foreach x in gi_other_sov_w {
-
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
-est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
-est store iv2
-
-}
-esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "gi_other_sov.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-
-foreach x in gi_pr_w {
-
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
-est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr, absorb(ifs yq)
-est store iv2
-
-}
-esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "gi_pr.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-
-foreach x in gi_sov_w {
-
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
-est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
-est store iv2
-
-}
-esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "gi_sov.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-
-
-foreach x in go_total_w {
-
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
-est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
-est store iv2
-
-}
-esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "go_total.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-
-foreach x in go_direct_w {
-
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
-est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr, absorb(ifs yq)
-est store iv2
-
-}
-esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "go_direct.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-
-foreach x in go_equity_w {
-
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
-est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
-est store iv2
-
-}
-esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "go_equity.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-
-foreach x in go_bonds_pr_w {
-
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
-est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
-est store iv2
-
-}
-esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "go_bonds_pr.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-
-foreach x in go_bonds_sov_w {
-
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
-est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
-est store iv2
-
-}
-esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "go_bonds_sov.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-
-foreach x in go_other_pr_w {
-
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
-est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
-est store iv2
-
-}
-esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "go_other_pr.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-
-foreach x in go_other_sov_w {
-
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
-est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr, absorb(ifs yq)
-est store iv2
-
-}
-esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "go_other_sov.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-
-foreach x in go_pr_w {
-
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
-est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
-est store iv2
-
-}
-esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "go_pr.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-
-foreach x in go_sov_w {
-
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq)
-est store iv1
-ivreghdfe `x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.`x' l2.`x' l3.`x' l4.`x' usgdp_gr usffr usdollar comm vix gdp_gr cpi cb_rate stock_gr fx_gr , absorb(ifs yq)
-est store iv2
-
-}
-esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
-esttab iv* using "go_sov.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
+esttab iv* using "sovereign.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
