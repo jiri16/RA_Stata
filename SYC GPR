@@ -1,14 +1,14 @@
 foreach x in net_total_w {
 
-reghdfe `x' gprc gpr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+reghdfe `x' l.gprc l.gpr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
-xtreg `x' gprc gpr l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
+xtreg `x' l.gprc l.gpr l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
 est store baseline2
-xtreg `x' gprc gpr l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+xtreg `x' l.gprc l.gpr l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
 est store baseline3
-reghdfe `x' gprc gpr l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
+reghdfe `x' l.gprc l.gpr l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
 est store baseline4 
-reghdfe `x' gprc gpr  l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+reghdfe `x' l.gprc l.gpr  l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline5
 
 
