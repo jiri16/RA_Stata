@@ -1,4 +1,4 @@
-foreach x gp_us_tre_w {
+foreach x in gp_us_tre_w {
 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline1
