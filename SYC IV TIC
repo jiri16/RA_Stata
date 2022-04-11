@@ -1,0 +1,118 @@
+foreach x in us_tre_w {
+
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) , absorb(ifs yq)
+est store iv1
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.net_`x' l2.net_`x' l3.net_`x' l4.net_`x', absorb(ifs yq)
+est store iv2
+ivreghdfe gp_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock), absorb(ifs yq)
+est store iv3
+ivreghdfe gp_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gp_`x' l2.gp_`x' l3.gp_`x' l4.gp_`x', absorb(ifs yq)
+est store iv4
+ivreghdfe gs_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock), absorb(ifs yq)
+est store iv5
+ivreghdfe gs_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gs_`x' l2.gs_`x' l3.gs_`x' l4.gs_`x' , absorb(ifs yq)
+est store iv6
+
+}
+esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
+esttab iv* using "tre.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
+
+
+foreach x in us_age_w {
+
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) , absorb(ifs yq)
+est store iv1
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.net_`x' l2.net_`x' l3.net_`x' l4.net_`x', absorb(ifs yq)
+est store iv2
+ivreghdfe gp_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock), absorb(ifs yq)
+est store iv3
+ivreghdfe gp_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gp_`x' l2.gp_`x' l3.gp_`x' l4.gp_`x', absorb(ifs yq)
+est store iv4
+ivreghdfe gs_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock), absorb(ifs yq)
+est store iv5
+ivreghdfe gs_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gs_`x' l2.gs_`x' l3.gs_`x' l4.gs_`x' , absorb(ifs yq)
+est store iv6
+
+}
+esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
+esttab iv* using "age.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
+
+
+foreach x in us_bond_w {
+
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) , absorb(ifs yq)
+est store iv1
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.net_`x' l2.net_`x' l3.net_`x' l4.net_`x', absorb(ifs yq)
+est store iv2
+ivreghdfe gp_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock), absorb(ifs yq)
+est store iv3
+ivreghdfe gp_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gp_`x' l2.gp_`x' l3.gp_`x' l4.gp_`x', absorb(ifs yq)
+est store iv4
+ivreghdfe gs_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock), absorb(ifs yq)
+est store iv5
+ivreghdfe gs_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gs_`x' l2.gs_`x' l3.gs_`x' l4.gs_`x' , absorb(ifs yq)
+est store iv6
+
+}
+esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
+esttab iv* using "bond.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
+
+
+foreach x in us_stock_w {
+
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) , absorb(ifs yq)
+est store iv1
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.net_`x' l2.net_`x' l3.net_`x' l4.net_`x', absorb(ifs yq)
+est store iv2
+ivreghdfe gp_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock), absorb(ifs yq)
+est store iv3
+ivreghdfe gp_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gp_`x' l2.gp_`x' l3.gp_`x' l4.gp_`x', absorb(ifs yq)
+est store iv4
+ivreghdfe gs_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock), absorb(ifs yq)
+est store iv5
+ivreghdfe gs_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gs_`x' l2.gs_`x' l3.gs_`x' l4.gs_`x' , absorb(ifs yq)
+est store iv6
+
+}
+esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
+esttab iv* using "stock.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
+
+
+foreach x in for_bond_w {
+
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) , absorb(ifs yq)
+est store iv1
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.net_`x' l2.net_`x' l3.net_`x' l4.net_`x', absorb(ifs yq)
+est store iv2
+ivreghdfe gp_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock), absorb(ifs yq)
+est store iv3
+ivreghdfe gp_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gp_`x' l2.gp_`x' l3.gp_`x' l4.gp_`x', absorb(ifs yq)
+est store iv4
+ivreghdfe gs_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock), absorb(ifs yq)
+est store iv5
+ivreghdfe gs_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gs_`x' l2.gs_`x' l3.gs_`x' l4.gs_`x' , absorb(ifs yq)
+est store iv6
+
+}
+esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
+esttab iv* using "for bond.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
+
+
+foreach x in for_stock_w {
+
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) , absorb(ifs yq)
+est store iv1
+ivreghdfe net_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.net_`x' l2.net_`x' l3.net_`x' l4.net_`x', absorb(ifs yq)
+est store iv2
+ivreghdfe gp_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock), absorb(ifs yq)
+est store iv3
+ivreghdfe gp_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gp_`x' l2.gp_`x' l3.gp_`x' l4.gp_`x', absorb(ifs yq)
+est store iv4
+ivreghdfe gs_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock), absorb(ifs yq)
+est store iv5
+ivreghdfe gs_`x' (f.l1lavgvol f.l1avgret = savgnatshock savgpolshock savgrevshock savgtershock) l1.gs_`x' l2.gs_`x' l3.gs_`x' l4.gs_`x' , absorb(ifs yq)
+est store iv6
+
+}
+esttab iv*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
+esttab iv* using "for stock.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2 sargan)
