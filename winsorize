@@ -31,6 +31,15 @@ winsor go_other_sov_g, gen(go_other_sov_w) p(0.01)
 winsor go_pr_g, gen(go_pr_w) p(0.01)
 winsor go_sov_g, gen(go_sov_w) p(0.01)
 
+
+winsor net_us_tre, gen(net_us_tre_w) p(0.01)
+winsor net_us_age, gen(net_us_age_w) p(0.01)
+winsor net_us_bond, gen(net_us_bond_w) p(0.01)
+winsor net_us_stock, gen(net_us_stock_w) p(0.01)
+winsor net_for_bond, gen(net_for_bond_w) p(0.01)
+winsor net_for_stock, gen(net_for_stock_w) p(0.01)
+
+
 winsor gp_us_tre_g, gen(gp_us_tre_w) p(0.01)
 winsor gp_us_age_g, gen(gp_us_age_w) p(0.01)
 winsor gp_us_bond_g, gen(gp_us_bond_w) p(0.01)
