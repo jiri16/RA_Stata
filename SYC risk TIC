@@ -1,15 +1,138 @@
+foreach x in net_us_tre_w {
+
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock, absorb(ifs yq) vce(cluster ifs)
+est store baseline1
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+est store baseline2
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
+est store baseline3
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+est store baseline4
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
+est store baseline5 
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+est store baseline6
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+esttab baseline* using "net_us_tre.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+
+
+foreach x in net_us_age_w {
+
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock, absorb(ifs yq) vce(cluster ifs)
+est store baseline1
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+est store baseline2
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
+est store baseline3
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+est store baseline4
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
+est store baseline5 
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+est store baseline6
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+esttab baseline* using "net_us_age.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+
+foreach x in net_us_bond_w {
+
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock, absorb(ifs yq) vce(cluster ifs)
+est store baseline1
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+est store baseline2
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
+est store baseline3
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+est store baseline4
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
+est store baseline5 
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+est store baseline6
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+esttab baseline* using "net_us_bond.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+
+foreach x in net_us_stock_w {
+
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock, absorb(ifs yq) vce(cluster ifs)
+est store baseline1
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+est store baseline2
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
+est store baseline3
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+est store baseline4
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
+est store baseline5 
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+est store baseline6
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+esttab baseline* using "net_us_stock.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+
+foreach x in net_for_bond_w {
+
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock, absorb(ifs yq) vce(cluster ifs)
+est store baseline1
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+est store baseline2
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
+est store baseline3
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+est store baseline4
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
+est store baseline5 
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+est store baseline6
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+esttab baseline* using "net_for_bond.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+
+foreach x in net_for_stock_w {
+
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock, absorb(ifs yq) vce(cluster ifs)
+est store baseline1
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+est store baseline2
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
+est store baseline3
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+est store baseline4
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
+est store baseline5 
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+est store baseline6
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+esttab baseline* using "net_for_stock.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+
 foreach x in gp_us_tre_w {
 
-reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock, absorb(ifs yq) vce(cluster ifs)
 est store baseline1
-xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline2
-xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
 est store baseline3
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+est store baseline4
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
-est store baseline4 
+est store baseline5 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
-est store baseline5
+est store baseline6
 
 
 }
@@ -19,16 +142,18 @@ esttab baseline* using "gp_us_tre.csv", plain replace b(%9.5f) se(%9.5f) star(* 
 
 foreach x in gp_us_age_w {
 
-reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock, absorb(ifs yq) vce(cluster ifs)
 est store baseline1
-xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline2
-xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
 est store baseline3
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+est store baseline4
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
-est store baseline4 
+est store baseline5 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
-est store baseline5
+est store baseline6
 
 
 }
@@ -37,16 +162,18 @@ esttab baseline* using "gp_us_age.csv", plain replace b(%9.5f) se(%9.5f) star(* 
 
 foreach x in gp_us_bond_w {
 
-reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock, absorb(ifs yq) vce(cluster ifs)
 est store baseline1
-xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline2
-xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
 est store baseline3
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+est store baseline4
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
-est store baseline4 
+est store baseline5 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
-est store baseline5
+est store baseline6
 
 
 }
@@ -55,16 +182,18 @@ esttab baseline* using "gp_us_bond.csv", plain replace b(%9.5f) se(%9.5f) star(*
 
 foreach x in gp_us_stock_w {
 
-reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock, absorb(ifs yq) vce(cluster ifs)
 est store baseline1
-xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline2
-xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
 est store baseline3
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+est store baseline4
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
-est store baseline4 
+est store baseline5 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
-est store baseline5
+est store baseline6
 
 
 }
@@ -73,16 +202,18 @@ esttab baseline* using "gp_us_stock.csv", plain replace b(%9.5f) se(%9.5f) star(
 
 foreach x in gp_for_bond_w {
 
-reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock, absorb(ifs yq) vce(cluster ifs)
 est store baseline1
-xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline2
-xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
 est store baseline3
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+est store baseline4
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
-est store baseline4 
+est store baseline5 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
-est store baseline5
+est store baseline6
 
 
 }
@@ -91,16 +222,18 @@ esttab baseline* using "gp_for_bond.csv", plain replace b(%9.5f) se(%9.5f) star(
 
 foreach x in gp_for_stock_w {
 
-reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock, absorb(ifs yq) vce(cluster ifs)
 est store baseline1
-xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline2
-xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
 est store baseline3
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+est store baseline4
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
-est store baseline4 
+est store baseline5 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
-est store baseline5
+est store baseline6
 
 
 }
@@ -109,16 +242,18 @@ esttab baseline* using "gp_for_stock.csv", plain replace b(%9.5f) se(%9.5f) star
 
 foreach x in gs_us_tre_w {
 
-reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock, absorb(ifs yq) vce(cluster ifs)
 est store baseline1
-xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline2
-xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
 est store baseline3
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+est store baseline4
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
-est store baseline4 
+est store baseline5 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
-est store baseline5
+est store baseline6
 
 
 }
@@ -127,16 +262,18 @@ esttab baseline* using "gs_us_tre.csv", plain replace b(%9.5f) se(%9.5f) star(* 
 
 foreach x in gs_us_age_w {
 
-reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock, absorb(ifs yq) vce(cluster ifs)
 est store baseline1
-xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline2
-xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
 est store baseline3
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+est store baseline4
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
-est store baseline4 
+est store baseline5 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
-est store baseline5
+est store baseline6
 
 
 }
@@ -146,16 +283,18 @@ esttab baseline* using "gs_us_age.csv", plain replace b(%9.5f) se(%9.5f) star(* 
 
 foreach x in gs_us_bond_w {
 
-reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock, absorb(ifs yq) vce(cluster ifs)
 est store baseline1
-xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline2
-xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
 est store baseline3
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+est store baseline4
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
-est store baseline4 
+est store baseline5 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
-est store baseline5
+est store baseline6
 
 
 }
@@ -165,16 +304,18 @@ esttab baseline* using "gs_us_bond.csv", plain replace b(%9.5f) se(%9.5f) star(*
 
 foreach x in gs_us_stock_w {
 
-reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock, absorb(ifs yq) vce(cluster ifs)
 est store baseline1
-xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline2
-xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
 est store baseline3
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+est store baseline4
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
-est store baseline4 
+est store baseline5 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
-est store baseline5
+est store baseline6
 
 
 }
@@ -184,16 +325,18 @@ esttab baseline* using "gs_us_stock.csv", plain replace b(%9.5f) se(%9.5f) star(
 
 foreach x in gs_for_bond_w {
 
-reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock, absorb(ifs yq) vce(cluster ifs)
 est store baseline1
-xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline2
-xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
 est store baseline3
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+est store baseline4
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
-est store baseline4 
+est store baseline5 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
-est store baseline5
+est store baseline6
 
 
 }
@@ -203,16 +346,18 @@ esttab baseline* using "gs_for_bond.csv", plain replace b(%9.5f) se(%9.5f) star(
 
 foreach x in gs_for_stock_w {
 
-reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock, absorb(ifs yq) vce(cluster ifs)
 est store baseline1
-xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
+reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
 est store baseline2
-xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs) 
 est store baseline3
+xtreg `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , vce(cluster ifs)
+est store baseline4
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs) 
-est store baseline4 
+est store baseline5 
 reghdfe `x' savgnatshock savgpolshock savgrevshock savgtershock l1.usgdp_gr l1.usffr l1.usdollar l1.comm l1.vix l1.gdp_gr l1.cpi l1.cb_rate l1.stock_gr l1.fx_gr l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs yq) vce(cluster ifs)
-est store baseline5
+est store baseline6
 
 
 }
