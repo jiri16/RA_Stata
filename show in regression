@@ -1,1 +1,4 @@
-tab ifs if e(sample)
+tab savgnatshock if e(sample)
+tab savgpolshock if e(sample)
+tab savgrevshock if e(sample)
+tab savgtershock if e(sample)
