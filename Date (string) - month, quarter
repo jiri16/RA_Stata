@@ -1,0 +1,29 @@
+Quarter
+
+gen date1 = date(date, "MDY")
+
+format date1 %td
+
+generate qtr = quarter(date1)
+
+generate yq = qofd(date1)
+
+format %tq yq
+
+drop qtr date1
+
+
+Month
+
+gen date1 = date(month, "MDY")
+
+format date1 %td
+
+generate mth = month(date1)
+
+generate ym = mofd(date1)
+
+format %tm ym
+
+drop mth date1
+
