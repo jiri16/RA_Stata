@@ -1,0 +1,10 @@
+foreach x in gp_us_tre {
+
+reghdfe `x' gprc , absorb(ifs ym) vce(cluster ifs)
+est store baseline1
+reghdfe `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs ym) vce(cluster ifs)
+est store baseline2
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
