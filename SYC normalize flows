@@ -1,0 +1,1 @@
+bysort ifs (ym) : gen tre = (cum_tre-cum_tre[_n-1])/cum_tre[_n-1]
