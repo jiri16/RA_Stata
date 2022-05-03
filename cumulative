@@ -1,1 +1,6 @@
 gen cum_invest = sum(invest)
+
+
+
+bysort company (year) : gen cum_invest = sum(invest)
+l company year *invest if inlist(company, 1, 2), sepby(company)
