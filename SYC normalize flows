@@ -1,1 +1,89 @@
-bysort ifs (ym) : gen tre = (cum_tre-cum_tre[_n-1])/cum_tre[_n-1]
+foreach x in gp_us_tre {
+bysort ifs (ym) : gen cum_`x' = sum(`x')
+bysort ifs (ym) : gen nor_`x' = (cum_`x' - cum_`x'[_n-1]) / cum_`x'[_n-1]
+drop cum_`x'
+}
+
+foreach x in gp_us_age {
+bysort ifs (ym) : gen cum_`x' = sum(`x')
+bysort ifs (ym) : gen nor_`x' = (cum_`x' - cum_`x'[_n-1]) / cum_`x'[_n-1]
+drop cum_`x'
+}
+
+foreach x in gp_us_bond {
+bysort ifs (ym) : gen cum_`x' = sum(`x')
+bysort ifs (ym) : gen nor_`x' = (cum_`x' - cum_`x'[_n-1]) / cum_`x'[_n-1]
+drop cum_`x'
+}
+
+foreach x in gp_us_stock {
+bysort ifs (ym) : gen cum_`x' = sum(`x')
+bysort ifs (ym) : gen nor_`x' = (cum_`x' - cum_`x'[_n-1]) / cum_`x'[_n-1]
+drop cum_`x'
+}
+
+foreach x in gp_for_bond {
+bysort ifs (ym) : gen cum_`x' = sum(`x')
+bysort ifs (ym) : gen nor_`x' = (cum_`x' - cum_`x'[_n-1]) / cum_`x'[_n-1]
+drop cum_`x'
+}
+
+foreach x in gp_for_stock {
+bysort ifs (ym) : gen cum_`x' = sum(`x')
+bysort ifs (ym) : gen nor_`x' = (cum_`x' - cum_`x'[_n-1]) / cum_`x'[_n-1]
+drop cum_`x'
+}
+
+foreach x in gs_us_tre {
+bysort ifs (ym) : gen cum_`x' = sum(`x')
+bysort ifs (ym) : gen nor_`x' = (cum_`x' - cum_`x'[_n-1]) / cum_`x'[_n-1]
+drop cum_`x'
+}
+
+foreach x in gs_us_age {
+bysort ifs (ym) : gen cum_`x' = sum(`x')
+bysort ifs (ym) : gen nor_`x' = (cum_`x' - cum_`x'[_n-1]) / cum_`x'[_n-1]
+drop cum_`x'
+}
+
+foreach x in gs_us_bond {
+bysort ifs (ym) : gen cum_`x' = sum(`x')
+bysort ifs (ym) : gen nor_`x' = (cum_`x' - cum_`x'[_n-1]) / cum_`x'[_n-1]
+drop cum_`x'
+}
+
+foreach x in gs_us_stock {
+bysort ifs (ym) : gen cum_`x' = sum(`x')
+bysort ifs (ym) : gen nor_`x' = (cum_`x' - cum_`x'[_n-1]) / cum_`x'[_n-1]
+drop cum_`x'
+}
+
+foreach x in gs_for_bond {
+bysort ifs (ym) : gen cum_`x' = sum(`x')
+bysort ifs (ym) : gen nor_`x' = (cum_`x' - cum_`x'[_n-1]) / cum_`x'[_n-1]
+drop cum_`x'
+}
+
+foreach x in gs_for_stock {
+bysort ifs (ym) : gen cum_`x' = sum(`x')
+bysort ifs (ym) : gen nor_`x' = (cum_`x' - cum_`x'[_n-1]) / cum_`x'[_n-1]
+drop cum_`x'
+}
+
+foreach x in total {
+bysort ifs (ym) : gen cum_`x' = sum(`x')
+bysort ifs (ym) : gen nor_`x' = (cum_`x' - cum_`x'[_n-1]) / cum_`x'[_n-1]
+drop cum_`x'
+}
+
+foreach x in equity {
+bysort ifs (ym) : gen cum_`x' = sum(`x')
+bysort ifs (ym) : gen nor_`x' = (cum_`x' - cum_`x'[_n-1]) / cum_`x'[_n-1]
+drop cum_`x'
+}
+
+foreach x in debt {
+bysort ifs (ym) : gen cum_`x' = sum(`x')
+bysort ifs (ym) : gen nor_`x' = (cum_`x' - cum_`x'[_n-1]) / cum_`x'[_n-1]
+drop cum_`x'
+}
