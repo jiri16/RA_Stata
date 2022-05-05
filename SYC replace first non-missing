@@ -1,0 +1,41 @@
+foreach x in debt {
+
+bys ifs (ym): gen n1 = sum(sum(!missing(nor_`x')))==1
+bys ifs (ym): gen n2 = sum(sum((n1[_n-1])==1))==1
+bys ifs (ym): gen n3 = sum(sum((n1[_n-2])==1))==1
+bys ifs (ym): gen n4 = sum(sum((n1[_n-3])==1))==1
+bys ifs (ym): gen n5 = sum(sum((n1[_n-4])==1))==1
+bys ifs (ym): gen n6 = sum(sum((n1[_n-5])==1))==1
+bys ifs (ym): gen n7 = sum(sum((n1[_n-6])==1))==1
+bys ifs (ym): gen n8 = sum(sum((n1[_n-7])==1))==1
+bys ifs (ym): gen n9 = sum(sum((n1[_n-8])==1))==1
+bys ifs (ym): gen n10 = sum(sum((n1[_n-9])==1))==1
+bys ifs (ym): gen n11 = sum(sum((n1[_n-10])==1))==1
+bys ifs (ym): gen n12 = sum(sum((n1[_n-11])==1))==1
+bys ifs (ym): gen n13 = sum(sum((n1[_n-12])==1))==1
+bys ifs (ym): gen n14 = sum(sum((n1[_n-13])==1))==1
+bys ifs (ym): gen n15 = sum(sum((n1[_n-14])==1))==1
+bys ifs (ym): gen n16 = sum(sum((n1[_n-15])==1))==1
+bys ifs (ym): gen n17 = sum(sum((n1[_n-16])==1))==1
+bys ifs (ym): gen n18 = sum(sum((n1[_n-17])==1))==1
+bys ifs (ym): gen n19 = sum(sum((n1[_n-18])==1))==1
+bys ifs (ym): gen n20 = sum(sum((n1[_n-19])==1))==1
+bys ifs (ym): gen n21 = sum(sum((n1[_n-20])==1))==1
+bys ifs (ym): gen n22 = sum(sum((n1[_n-21])==1))==1
+bys ifs (ym): gen n23 = sum(sum((n1[_n-22])==1))==1
+bys ifs (ym): gen n24 = sum(sum((n1[_n-23])==1))==1
+
+bys ifs (ym): gen dr_`x' = n1+ n2+ n3+ n4+ n5+ n6+ n7+ n8+ n9 +n10+ n11+ n12 +n13+ n14+ n15+ n16+ n17 +n18 +n19+ n20+ n21 +n22+ n23+ n24
+
+drop n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 n11 n12 n13 n14 n15 n16 n17 n18 n19 n20 n21 n22 n23 n24
+
+}
+
+
+
+
+foreach x in debt {
+
+bys ifs (ym): replace nor_`x' = . if dr_`x'==1
+
+}
