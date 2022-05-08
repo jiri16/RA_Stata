@@ -1,3 +1,18 @@
+foreach x in for_stock {
+bysort ifs (ym) : gen cum_net_`x' = sum(net_`x')
+bysort ifs (ym) : gen nor_net_`x' = (cum_net_`x' - cum_net_`x'[_n-1]) / cum_net_`x'[_n-1]
+drop cum_net_`x'
+bys ifs (ym): replace nor_net_`x' = . if dr_gp_`x'==1
+}
+
+
+
+
+
+
+
+
+
 foreach x in gp_us_tre {
 bysort ifs (ym) : gen cum_`x' = sum(`x')
 bysort ifs (ym) : gen nor_`x' = (cum_`x' - cum_`x'[_n-1]) / cum_`x'[_n-1]
