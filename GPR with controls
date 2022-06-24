@@ -1,0 +1,335 @@
+foreach x in total {
+
+xtreg `x' gprc , fe
+est store baseline1
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' , fe
+est store baseline2
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix , fe
+est store baseline3
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' indprod inf st_ir , fe
+est store baseline4
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix indprod inf st_ir , fe
+est store baseline5
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+esttab baseline* using "total.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+
+
+
+foreach x in equity {
+
+xtreg `x' gprc , fe
+est store baseline1
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' , fe
+est store baseline2
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix , fe
+est store baseline3
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' indprod inf st_ir , fe
+est store baseline4
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix indprod inf st_ir , fe
+est store baseline5
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+esttab baseline* using "equity.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+
+
+foreach x in debt {
+
+xtreg `x' gprc , fe
+est store baseline1
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' , fe
+est store baseline2
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix , fe
+est store baseline3
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' indprod inf st_ir , fe
+est store baseline4
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix indprod inf st_ir , fe
+est store baseline5
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+esttab baseline* using "debt.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+
+
+
+
+foreach x in us_net_pur_bond {
+
+xtreg `x' gprc , fe
+est store baseline1
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' , fe
+est store baseline2
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix reer us_industr , fe
+est store baseline3
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' indprod inf st_ir , fe
+est store baseline4
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix reer us_industr indprod inf st_ir , fe
+est store baseline5
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+esttab baseline* using "us_pur_bond.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+
+
+foreach x in us_net_pur_stock {
+
+xtreg `x' gprc , fe
+est store baseline1
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' , fe
+est store baseline2
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix reer us_industr, fe
+est store baseline3
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' indprod inf st_ir , fe
+est store baseline4
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix reer us_industr indprod inf st_ir , fe
+est store baseline5
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+esttab baseline* using "us_pur_stock.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+foreach x in total {
+
+xtreg `x' gprc if em==1, fe
+est store baseline1
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' if em==1 , fe
+est store baseline2
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix if em==1, fe
+est store baseline3
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' indprod inf st_ir if em==1, fe
+est store baseline4
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix indprod inf st_ir if em==1, fe
+est store baseline5
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+esttab baseline* using "em_total.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+
+
+
+foreach x in equity {
+
+xtreg `x' gprc if em==1, fe
+est store baseline1
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' if em==1, fe
+est store baseline2
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix if em==1, fe
+est store baseline3
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' indprod inf st_ir if em==1, fe
+est store baseline4
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix indprod inf st_ir if em==1, fe
+est store baseline5
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+esttab baseline* using "em_equity.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+
+
+foreach x in debt {
+
+xtreg `x' gprc if em==1, fe
+est store baseline1
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' if em==1, fe
+est store baseline2
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix if em==1, fe
+est store baseline3
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' indprod inf st_ir if em==1, fe
+est store baseline4
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix indprod inf st_ir if em==1, fe
+est store baseline5
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+esttab baseline* using "em_debt.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+
+
+
+
+foreach x in us_net_pur_bond {
+
+xtreg `x' gprc if em==1, fe
+est store baseline1
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' if em==1, fe
+est store baseline2
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix reer us_industr if em==1, fe
+est store baseline3
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' indprod inf st_ir if em==1, fe
+est store baseline4
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix reer us_industr indprod inf st_ir if em==1, fe
+est store baseline5
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+esttab baseline* using "em_us_pur_bond.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+
+
+foreach x in us_net_pur_stock {
+
+xtreg `x' gprc if em==1, fe
+est store baseline1
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' if em==1, fe
+est store baseline2
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix reer us_industr if em==1, fe
+est store baseline3
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' indprod inf st_ir if em==1, fe
+est store baseline4
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix reer us_industr indprod inf st_ir if em==1, fe
+est store baseline5
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+esttab baseline* using "em_us_pur_stock.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+foreach x in total {
+
+xtreg `x' gprc if em==0, fe
+est store baseline1
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' if em==0 , fe
+est store baseline2
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix if em==0, fe
+est store baseline3
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' indprod inf st_ir if em==0, fe
+est store baseline4
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix indprod inf st_ir if em==0, fe
+est store baseline5
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+esttab baseline* using "ae_total.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+
+
+
+foreach x in equity {
+
+xtreg `x' gprc if em==0, fe
+est store baseline1
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' if em==0, fe
+est store baseline2
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix if em==0, fe
+est store baseline3
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' indprod inf st_ir if em==0, fe
+est store baseline4
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix indprod inf st_ir if em==0, fe
+est store baseline5
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+esttab baseline* using "ae_equity.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+
+
+foreach x in debt {
+
+xtreg `x' gprc if em==0, fe
+est store baseline1
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' if em==0, fe
+est store baseline2
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix if em==0, fe
+est store baseline3
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' indprod inf st_ir if em==0, fe
+est store baseline4
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix indprod inf st_ir if em==0, fe
+est store baseline5
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+esttab baseline* using "ae_debt.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+
+
+
+
+foreach x in us_net_pur_bond {
+
+xtreg `x' gprc if em==0, fe
+est store baseline1
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' if em==0, fe
+est store baseline2
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix reer us_industr if em==0, fe
+est store baseline3
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' indprod inf st_ir if em==0, fe
+est store baseline4
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix reer us_industr indprod inf st_ir if em==0, fe
+est store baseline5
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+esttab baseline* using "ae_us_pur_bond.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+
+
+foreach x in us_net_pur_stock {
+
+xtreg `x' gprc if em==0, fe
+est store baseline1
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' if em==0, fe
+est store baseline2
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix reer us_industr if em==0, fe
+est store baseline3
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' indprod inf st_ir if em==0, fe
+est store baseline4
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix reer us_industr indprod inf st_ir if em==0, fe
+est store baseline5
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+esttab baseline* using "ae_us_pur_stock.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
