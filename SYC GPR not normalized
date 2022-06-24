@@ -192,6 +192,50 @@ esttab baseline* using "debt.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 
 
 
 
+foreach x in us_net_pur_bond {
+
+reghdfe `x' gprc , absorb(ifs ym) vce(cluster ifs)
+est store baseline1
+reghdfe `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs ym) vce(cluster ifs)
+est store baseline2
+reghdfe `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix industr reer  , absorb(ifs ym) vce(cluster ifs)
+est store baseline3
+xtreg `x' gprc , fe
+est store baseline4
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' , fe
+est store baseline5
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix industr reer , fe
+est store baseline6
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+esttab baseline* using "us_pur_bond.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+
+
+foreach x in us_net_pur_stock {
+
+
+reghdfe `x' gprc , absorb(ifs ym) vce(cluster ifs)
+est store baseline1
+reghdfe `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' , absorb(ifs ym) vce(cluster ifs)
+est store baseline2
+reghdfe `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix industr reer  , absorb(ifs ym) vce(cluster ifs)
+est store baseline3
+xtreg `x' gprc , fe
+est store baseline4
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' , fe
+est store baseline5
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix industr reer , fe
+est store baseline6
+
+
+}
+esttab baseline*, b(%9.3f) se(%9.3f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+esttab baseline* using "us_pur_stock.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.10 ** 0.05 *** 0.01) stats(N r2_o r2_a)
+
+
+
 
 
 
