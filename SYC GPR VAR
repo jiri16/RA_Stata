@@ -1,0 +1,8 @@
+#VAR regression
+var vix fed gprc indprod inf us_net_pur_bond if ifs==223, lags(1/6)
+
+irf set irf
+
+irf create IRF, step(36)
+
+irf graph irf, irf(IRF) impulse(gprc) response(us_net_pur_bond)
