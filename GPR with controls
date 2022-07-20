@@ -178,15 +178,15 @@ esttab baseline* using "em_debt.csv", plain replace b(%9.5f) se(%9.5f) star(* 0.
 
 foreach x in us_net_pur_bond {
 
-xtreg `x' gprc if em==1, fe
+xtreg `x' gprc i.ym if em==1, fe vce(cluster ifs)
 est store baseline1
-xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' if em==1, fe
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' i.ym if em==1, fe vce(cluster ifs)
 est store baseline2
-xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix gr_reer gr_us_indprod if em==1, fe
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix gr_reer gr_us_indprod i.ym if em==1, fe vce(cluster ifs)
 est store baseline3
-xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' gr_indprod gr_inf gr_st_ir gr_er gr_msci if em==1, fe
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' gr_indprod gr_inf gr_st_ir gr_er gr_msci i.ym if em==1, fe vce(cluster ifs)
 est store baseline4
-xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix gr_us_indprod gr_indprod gr_inf gr_st_ir gr_er gr_msci if em==1, fe
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix gr_us_indprod gr_indprod gr_inf gr_st_ir gr_er gr_msci i.ym if em==1, fe vce(cluster ifs)
 est store baseline5
 
 
@@ -197,15 +197,15 @@ esttab baseline* using "em_us_pur_bond.csv", plain replace b(%9.5f) se(%9.5f) st
 
 foreach x in us_net_pur_stock {
 
-xtreg `x' gprc if em==1, fe
+xtreg `x' gprc i.ym if em==1, fe vce(cluster ifs)
 est store baseline1
-xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' if em==1, fe
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' i.ym if em==1, fe vce(cluster ifs)
 est store baseline2
-xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix gr_reer gr_us_indprod if em==1, fe
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix gr_reer gr_us_indprod i.ym if em==1, fe vce(cluster ifs)
 est store baseline3
-xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' gr_indprod gr_inf gr_st_ir gr_er gr_msci if em==1, fe
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' gr_indprod gr_inf gr_st_ir gr_er gr_msci i.ym if em==1, fe vce(cluster ifs)
 est store baseline4
-xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix gr_us_indprod gr_indprod gr_inf gr_st_ir gr_er gr_msci if em==1, fe
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix gr_us_indprod gr_indprod gr_inf gr_st_ir gr_er gr_msci i.ym if em==1, fe vce(cluster ifs)
 est store baseline5
 
 
