@@ -1,14 +1,14 @@
 foreach x in total_us {
 
-xtreg `x' gprc if em==1, fe
+xtreg `x' gprc i.ym if em==1, fe
 est store baseline1
-xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' if em==1, fe
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' i.ym if em==1, fe
 est store baseline2
-xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix gr_reer gr_us_indprod if em==1, fe
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix gr_reer gr_us_indprod i.ym if em==1, fe
 est store baseline3
-xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' gr_indprod gr_inf gr_st_ir gr_er gr_msci if em==1, fe
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' gr_indprod gr_inf gr_st_ir gr_er gr_msci i.ym if em==1, fe
 est store baseline4
-xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix gr_us_indprod gr_indprod gr_inf gr_st_ir gr_er gr_msci if em==1, fe
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix gr_us_indprod gr_indprod gr_inf gr_st_ir gr_er gr_msci i.ym if em==1, fe
 est store baseline5
 
 
@@ -19,15 +19,15 @@ esttab baseline* using "em_total_us.csv", plain replace b(%9.5f) se(%9.5f) star(
 
 foreach x in bonds_us {
 
-xtreg `x' gprc if em==1, fe
+xtreg `x' gprc i.ym if em==1, fe
 est store baseline1
-xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' if em==1, fe
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' i.ym if em==1, fe
 est store baseline2
-xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix gr_reer gr_us_indprod if em==1, fe
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix gr_reer gr_us_indprod i.ym if em==1, fe
 est store baseline3
-xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' gr_indprod gr_inf gr_st_ir gr_er gr_msci if em==1, fe
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' gr_indprod gr_inf gr_st_ir gr_er gr_msci i.ym if em==1, fe
 est store baseline4
-xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix gr_us_indprod gr_indprod gr_inf gr_st_ir gr_er gr_msci if em==1, fe
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix gr_us_indprod gr_indprod gr_inf gr_st_ir gr_er gr_msci i.ym if em==1, fe
 est store baseline5
 
 
@@ -38,15 +38,15 @@ esttab baseline* using "em_bonds_us.csv", plain replace b(%9.5f) se(%9.5f) star(
 
 foreach x in stocks_us {
 
-xtreg `x' gprc if em==1, fe
+xtreg `x' gprc i.ym if em==1, fe
 est store baseline1
-xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' if em==1, fe
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' i.ym if em==1, fe
 est store baseline2
-xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix gr_reer gr_us_indprod if em==1, fe
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix gr_reer gr_us_indprod i.ym if em==1, fe
 est store baseline3
-xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' gr_indprod gr_inf gr_st_ir gr_er gr_msci if em==1, fe
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' gr_indprod gr_inf gr_st_ir gr_er gr_msci i.ym if em==1, fe
 est store baseline4
-xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix gr_us_indprod gr_indprod gr_inf gr_st_ir gr_er gr_msci if em==1, fe
+xtreg `x' gprc l1.`x' l2.`x' l3.`x' l4.`x' fed vix gr_us_indprod gr_indprod gr_inf gr_st_ir gr_er gr_msci i.ym if em==1, fe
 est store baseline5
 
 
